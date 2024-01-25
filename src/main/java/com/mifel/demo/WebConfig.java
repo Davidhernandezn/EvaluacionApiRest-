@@ -1,0 +1,19 @@
+// WebConfig.java
+package com.mifel.demo;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+@EnableWebMvc
+public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/h2-ui/**")
+                .allowedOrigins("http://localhost:8080");  // Agrega aquí el origen permitido
+    	System.out.println("***********Web conf**********");
+    }
+}
