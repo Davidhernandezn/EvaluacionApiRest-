@@ -17,6 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
         .antMatchers("/h2-ui/**").permitAll()
         .antMatchers("/api/users/**").permitAll() // Permitir el acceso a /api/users sin autenticación
+        .antMatchers("/pokemon/**").permitAll() // Permitir el acceso a /api/users sin autenticación
         .anyRequest().authenticated()
         .and().csrf().ignoringAntMatchers("/h2-ui/**") // Ignorar CSRF para la consola de H2
         .and().headers().frameOptions().sameOrigin()  // Permitir la carga del frame de H2
